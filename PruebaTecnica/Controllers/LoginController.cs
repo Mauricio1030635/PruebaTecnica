@@ -54,23 +54,6 @@ namespace Proyecto.API.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UsuarioDTO nuevaPersona)
-        {
-            Respuestas Respuesta = new Respuestas();
-            try
-            {
-                Respuesta.Mensaje = "OK";
-                Respuesta.Data = await _Con.CrearUsuario(nuevaPersona);
-            }
-            catch (Exception exc)
-            {
-                Respuesta.Estado = 0;
-                Respuesta.Mensaje = exc.Message;
-            }
-            return Ok(Respuesta);
-
-        }
 
         private string GenerateTokenJwt(UsuarioDTO usuario)
         {
